@@ -1,0 +1,215 @@
+@charset "UTF-8";
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  text-shadow: 0px 0px 0px #000;
+}
+
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  text-shadow: 0px 0px 0px #000;
+}
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  text-shadow: 0px 0px 0px #000;
+}
+
+#popup-confirm-buy-pre {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1030;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: none;
+}
+
+#popup-confirm-buy-pre .content-data-pre {
+  margin: auto;
+  background-color: white;
+  margin-top: 80px;
+  border: 1px solid #dddddd;
+}
+
+@media (min-width: 992px) {
+  #popup-confirm-buy-pre {
+    padding-left: 50px;
+  }
+}
+
+#popup-confirm-buy-pre .content-data-pre {
+  width: 500px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#blog {
+  color: white;
+}
+
+#blog .blog_list li a {
+  color: white;
+  display: block;
+  width: 80%;
+  float: left;
+}
+
+#blog .blog_list li p {
+  width: 15%;
+  color: #fff;
+  float: right;
+  background: #01b705;
+  padding: 1px 0 1px 0;
+  text-align: center;
+}
+
+#blog .blog_list li {
+  display: flex;
+  margin-top: 5px;
+}
+
+.blog_list {
+  margin-top: 10px;
+  height: 320px;
+  overflow: auto;
+  border: solid 10px #000;
+  background-color: black;
+}
+
+/* page week */
+.custom {
+  height: 100px;
+  background-color: white;
+  border: 3px solid #ffd500;
+  padding: 10px;
+  font-size: 16px;
+  margin: 4px 0;
+  color: #000;
+  text-shadow: 0px 0px 0px #000;
+}
+
+.custom a {
+  color: #000;
+  text-decoration: none;
+}
+
+.custom a:hover {
+  color: #ffd500;
+  text-decoration: none;
+}
+
+/* result  */
+.result-detail img,
+.blog-detail img {
+  max-width: 100% !important;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: .9rem;
+  line-height: 1.6;
+  border-radius: .25rem;
+  -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
+}
+
+.btn:focus,
+.btn:hover {
+  text-decoration: none
+}
+
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+  box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+}
+
+.btn.disabled,
+.btn:disabled {
+  opacity: .65
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer
+}
+
+.btn:not(:disabled):not(.disabled).active,
+.btn:not(:disabled):not(.disabled):active {
+  background-image: none
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+  -webkit-box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5);
+  box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5);
+  box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+}
+
+.msg-center {
+  margin: auto;
+  width: 50%;
+}

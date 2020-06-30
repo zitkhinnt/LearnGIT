@@ -1,0 +1,103 @@
+@extends('horserace::frontend.layouts.design')
+@section('title','')
+@section('content')
+
+    <div class="plan-head">
+        <img src="{{ asset('frontend/images/channel/login/cap-2nd.jpg') }}" width="850" height="230"/>
+    </div>
+
+    @if (Session::has('flash_message'))
+        <div class="alert alert-{!! Session::get('flash_level') !!}"
+             style="height: 50px; font-size: 20px; text-align: center">
+            {!! Session::get('flash_message') !!}
+        </div>
+    @endif
+    <div class="text-area">
+
+        <div class="column-info">
+            <div class="info">
+                <p><img src="{{ asset($data['prediction_type']->image) }} " width="682"/></p>
+            </div>
+        </div>
+        <div class="column-info2">
+            <table>
+                <tr>
+                    <th class="r02">提供数</th>
+                    <td>2鞍（コロガシ）</td>
+                </tr>
+                <tr>
+                    <th class="r02">券種</th>
+                    <td>3連単</td>
+                </tr>
+                <tr>
+                    <th class="r02">点数</th>
+                    <td>5点前後</td>
+                </tr>
+                <tr>
+                    <th class="r02">投資金</th>
+                    <td>1点2000円</td>
+                </tr>
+                <tr>
+                    <th class="r02">目標金額</th>
+                    <td>50万</td>
+                </tr>
+                <tr>
+                    <th class="r02">参加締め切り</th>
+                    <td>11時半</td>
+                </tr>
+                <tr>
+                    <th class="r02">公開時間</th>
+                    <td>12時半</td>
+                </tr>
+                <tr>
+                    <th class="r02">対象レース</th>
+                    <td>13時以降</td>
+                </tr>
+                <tr>
+                    <th class="r02">参加費用</th>
+                    <td>500pt</td>
+                </tr>
+            </table>
+            <div class="btn-area">
+            @foreach($data["list_prediction"] as $item)
+                    @switch($item->status)
+                        @case(PREDICTION_STATUS_OPEN)
+                        @if($item->user_buy == NOT_BUY_PREDICTION)
+                            <form id="buy-prediction" method="POST" action="{{ route("buy_prediction") }}">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="prediction_id" value="{{ $item->id }}">
+                                <br>
+                                <a class="btn01" href="{{ route("buy_prediction") }}"
+                                   onclick="event.preventDefault(); document.getElementById('buy-prediction').submit();">
+                                    {{ replaceDayOfWeekJa(date('【l】m月d日', strtotime($item->info_start_time)))}}情報に>>参加する
+                                </a>
+                            </form>
+                        @else
+                            <div class="btn-cam">
+                               <a href="#" class="btn01">{{ replaceDayOfWeekJa(date('【l】m月d日', strtotime($item->info_start_time))) }}情報に>>参加する</a>
+                            </div>
+                        @endif
+                        @break
+
+                        @case(PREDICTION_STATUS_REMAIN)
+                        <div class="btn-cam">
+                            <div class="btn-area">
+                            <a href="#" class="btn03">{{ replaceDayOfWeekJa(date('【l】m月d日', strtotime($item->info_start_time))) }}<img src="{{ asset('frontend/images/channel/login/dan.svg') }}" />残りわずか</a>
+                            </div>
+                        </div>
+                        @break
+
+                        @case(PREDICTION_STATUS_DONE)
+                        <div class="btn-cam">
+                            <a href="#" class="btn02">{{ replaceDayOfWeekJa(date('【l】m月d日', strtotime($item->info_start_time))) }}>>完売</a>
+                        </div>
+                        @break
+                        @default
+                        @break
+                    @endswitch
+
+                @endforeach
+            </div>
+        </div>
+    </div>
+@endsection

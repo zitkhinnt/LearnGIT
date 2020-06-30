@@ -1,0 +1,14 @@
+{
+    "name": "Horserace",
+    "alias": "horserace",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Horserace\\Providers\\HorseraceServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

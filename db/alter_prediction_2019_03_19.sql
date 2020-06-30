@@ -1,0 +1,1 @@
+ALTER TABLE `prediction_type` ADD `default_point` INT(20) NOT NULL AFTER `before_open_content`, ADD `prediction_type_params` TEXT NOT NULL AFTER `default_point`;

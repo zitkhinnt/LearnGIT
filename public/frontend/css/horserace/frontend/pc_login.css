@@ -1,0 +1,247 @@
+@charset "utf-8";
+
+/* Style for our header texts
+* --------------------------------------- */
+h1 {
+  font-size: 30px;
+  font-family: 'Great Vibes', cursive;
+  color: #cccccc;
+  margin: 0 0 1em 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+/* Centered texts in each section
+* --------------------------------------- */
+.section > div:not(.section1):not(.arrow) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+#section0 .arrow, #section1 .arrow,
+#section2 .arrow, #section3 .arrow,
+#section4 .arrow {
+  position: absolute;
+  top: 89%;
+  width: 100%;
+  text-align: center;
+}
+
+#section0 .section0 {
+  margin: -200px auto auto -330px !important;
+}
+
+#section1 {
+  padding: 10px;
+}
+
+#section1 .section1 {
+  margin: auto;
+  top: 35%;
+  padding: 20px 20px 5px;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+#section1 .section1 > img {
+  margin-bottom: 20px;
+}
+
+#section2 .section2 {
+  /*margin: -140px auto auto -265px !important;*/
+  margin: -240px auto auto -370px !important;
+}
+
+#section3 .section3 {
+  /*margin: -120px auto auto -273px !important;*/
+  margin: -240px auto auto -370px !important;
+}
+
+#section4 .section4 {
+  width: 100%;
+  /*display: contents;*/
+  /*height: 150px !important;*/
+  /*margin: 0px auto auto -682px !important;*/
+}
+
+#section4 div {
+  top: 0%;
+  left: 0%;
+}
+
+#section4 {
+  height: 200px !important;
+}
+
+/*#section4 div {*/
+/*margin: -50px auto auto -273px !important;*/
+/*}*/
+
+#section5 div {
+  left: 0;
+  margin-top: -240px !important;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px 0;
+  width: 100% !important;
+}
+
+/* Defining each sectino background and styles
+* --------------------------------------- */
+#section0 {
+  background: url(../../../images/horserace/frontend/default/bg1.jpg) no-repeat center center;
+}
+
+#section1 {
+  background: url(../../../images/horserace/frontend/default/bg2.jpg) no-repeat center center;
+}
+
+#section2 {
+  background: url(../../../images/horserace/frontend/default/bg3.jpg) no-repeat center center;
+}
+
+#section3 {
+  background: url(../../../images/horserace/frontend/default/bg4.jpg) no-repeat center center;
+}
+
+/*#section4 {*/
+/*background: url("../../../images/horserace/frontend/default/footer-bg.png");*/
+/*!*padding-top: 100px;*!*/
+/*}*/
+
+#section5 {
+  background-image: url(../../../login.html);
+}
+
+#section6 {
+  background-image: url(../../../images/horserace/frontend/default/bg4.jpg);
+}
+
+/* Backgrounds will cover all the section
+* --------------------------------------- */
+#section0, #section1, #section2,
+#section3, #section4, #section5, #section6 {
+  background-size: cover;
+}
+
+/* Fixed header and footer.
+* --------------------------------------- */
+
+nav.navbar-dark-opacity {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*#footer {*/
+/*position: fixed;*/
+/*min-height: 30px;*/
+/*display: block;*/
+/*width: 100%;*/
+/*background: rgba(0, 0, 0, 0.5);*/
+/*z-index: 9;*/
+/*text-align: center;*/
+/*color: #cccccc;*/
+/*padding: 10px 0 0 0;*/
+/*}*/
+
+/*#footer {*/
+/*bottom: 0;*/
+/*font-size: 12px;*/
+/*}*/
+
+#menu {
+  font-family: 'Lusitana', serif;
+}
+
+/* Bottom menu
+* --------------------------------------- */
+#infoMenu li a {
+  color: #fff;
+}
+
+p {
+  color: #fff;
+}
+
+/*#footer a {*/
+/*color: #ccc;*/
+/*text-decoration: underline;*/
+/*}*/
+
+/*#footer p {*/
+/*margin: 5px 0;*/
+/*}*/
+
+.tel-link {
+  margin-right: 16px;
+}
+
+p#copy {
+  font-size: 11px;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.title-login-register {
+  color: white;
+  font-weight: bold;
+}
+
+#footer {
+  background: url("../../../images/horserace/frontend/default/footer-bg.png");
+  width: 100%;
+  padding: 20px 0;
+  border-top: 4px solid #ffd500;
+  font-size: 14px;
+}
+
+#footer-area {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+#footer-menu {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+#footer-menu li {
+  border-right: 2px solid #fff;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#footer-menu li:last-child {
+  border-right: 0;
+}
+
+#footer-menu li a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  padding: 2px 0;
+}
+
+#footer-menu li a:hover {
+  color: #ffd500;
+}
+
+#footer-area {
+  margin: 0 auto;
+  width: 100%;
+}
+
+address {
+  font-style: normal;
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.sp-nav {
+  display: none;
+}
+

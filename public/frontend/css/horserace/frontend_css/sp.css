@@ -1,0 +1,117 @@
+
+#header a, #footer p {
+  font-size: .9em !important;
+}
+
+h1 {
+  font-size: 80px !important;
+}
+
+#header {
+  height: 80px;
+}
+
+#menu li a {
+  line-height: 60px;
+  height: 60px;
+}
+
+.section {
+  padding: 80px 0 0 0;
+  text-align: center;
+}
+
+.section h1 {
+  text-align: center !important;
+  position: relative !important;
+  margin: auto !important;
+}
+
+.section div {
+  text-align: center !important;
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+#section0 div {
+  margin: 0 !important;
+}
+
+#section0 .section0,
+#section1 .section1,
+#section2 .section2,
+#section3 .section3,
+#section4 div,
+#section5 div,
+#section6 div {
+  margin: 20px 0 0 0 !important;
+}
+
+#section0 .section0 {
+  top: 25% !important;
+}
+
+.section img {
+  width: 100vw !important;
+  padding: 10px;
+}
+
+.arrow {
+  width: 100%;
+}
+
+.arrow img {
+  width: 15vw !important;
+}
+
+#info span {
+  font-size: 40px !important;
+}
+
+#section0 div,
+#section1 div,
+#section2 div,
+#section3 div,
+#section4 div,
+#section5 div {
+  top: 50% !important;
+}
+
+#section0 .arrow,
+#section1 .arrow,
+#section2 .arrow,
+#section3 .arrow {
+  top: 85% !important;
+}
+
+#section1 .section1 {
+  width: 100%;
+  margin-top: -30% !important;
+}
+
+#section2 .section2 {
+  margin-top: -30% !important;
+}
+
+#section3 .section3 {
+  margin-top: -30% !important;
+}
+
+#section4 div {
+  margin-top: -50% !important;
+}
+
+#section5 div {
+  margin-top: -430px !important;
+}
+
+#section0,
+#section1,
+#section2,
+#section3,
+#section4,
+#section5,
+#section6 {
+  background-size: cover;
+}

@@ -1,0 +1,455 @@
+@extends('horserace::backend.layouts.design')
+@section('title',__("horserace::be_sidebar.summary_deposit"))
+@section('content')
+
+  <!-- breadcumb -->
+@section('page_title', __("horserace::be_sidebar.summary_deposit"))
+@section('breadcrumb_item')
+  <li class="breadcrumb-item">{{ __("horserace::be_sidebar.summary_deposit") }}</li>
+@endsection
+
+<!-- START PAGE CONTENT-->
+<div class="page-content fade-in-up">
+  <!-- Calendar -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ibox">
+        <div class="ibox-head" id="click_hidden">
+          <div class="ibox-title">
+            <i class="ti-arrow-down" id="icon_arrow"> </i> {{ __("horserace::be_sidebar.summary_deposit") }}
+          </div>
+        </div>
+        <div class="ibox-body" id="click_hidden">
+          <div id="hide_calendar">
+            <div class="calendar-summary" id="calendarDeposit"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Method -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ibox">
+        <div class="ibox-head">
+          <div class="ibox-title">
+            {{ __('horserace::be_form.method') }}
+          </div>
+        </div>
+        <div class="ibox-body">
+          <select name="method" class="custom-select method method">
+            <option value="" selected="selected">
+              {{ __('horserace::be_form.unset') }}
+            </option>
+            <option value="{{ METHOD_BANK }}">
+              {{ __('horserace::be_form.method_bank') }}
+            </option>
+            <option value="{{ METHOD_CREDIT }}">
+              {{ __('horserace::be_form.method_credit') }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table week -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ibox">
+        <div class="ibox-head">
+          <div class="ibox-title">
+            <h5 class="title-time"></h5>
+          </div>
+        </div>
+        <div class="ibox-body">
+          <table id="table-report-week-payment" class="table table-bordered table-hover">
+            <thead class="thead-default">
+            <tr>
+              <th class="text-center">{{ __('horserace::be_form.week') }}</th>
+              <th> {{ __('horserace::be_form.week_time') }}</th>
+              <th class="text-center">{{ __('horserace::be_form.summary_sales') }}</th>
+              <th class="text-center">{{ __('horserace::be_form.number_deposit') }}</th>
+              <th class="text-center">{{ __('horserace::be_form.number_people_deposit') }}</th>
+              <th class="text-center">{{ __('horserace::be_form.unit_deposit') }}</th>
+              <th class="text-center">{{ __('horserace::be_form.number_user_login') }}</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart-->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ibox">
+        <div class="ibox-head">
+          <div class="ibox-title">
+            <h5 class="title-time"></h5>
+          </div>
+        </div>
+        <div class="ibox-body">
+          <div>
+            <canvas id="bar_chart" style="height:350px;"></canvas>
+            <input type="hidden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table list datetime-->
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="ibox">
+        <div class="ibox-head">
+          <div class="ibox-title">
+            <h5>{{ __('horserace::be_form.daily') }}</h5>
+          </div>
+        </div>
+        <div class="ibox-body">
+          <table id="table-report-day-payment" class="table table-bordered  mb-5">
+            <thead>
+            <tr>
+             <th style="cursor: pointer;" onclick="sortTable(0)">{{ __('horserace::be_form.date') }} <i class="fa fa-long-arrow-up" style="margin-left:20px"></i><i class="fa fa-long-arrow-down"></i></th>
+              <th class="text-center" style="cursor: pointer;" onclick="sortTable(1)">{{ __('horserace::be_form.summary_sales') }} <i class="fa fa-long-arrow-up" style="margin-left:20px"></i><i class="fa fa-long-arrow-down"></i></th>
+              <th class="text-center" style="cursor: pointer;" onclick="sortTable(2)">{{ __('horserace::be_form.number_deposit') }} <i class="fa fa-long-arrow-up" style="margin-left:20px"></i><i class="fa fa-long-arrow-down"></i></th>
+              <th class="text-center" style="cursor: pointer;" onclick="sortTable(3)">{{ __('horserace::be_form.number_people_deposit') }} <i class="fa fa-long-arrow-up" style="margin-left:20px"></i><i class="fa fa-long-arrow-down"></i></th>
+              <th class="text-center" style="cursor: pointer;" onclick="sortTable(4)">{{ __('horserace::be_form.new_depositor') }} <i class="fa fa-long-arrow-up" style="margin-left:20px"></i><i class="fa fa-long-arrow-down"></i></th>
+              <th class="text-center" style="cursor: pointer;" onclick="sortTable(5)">{{ __('horserace::be_form.unit_deposit') }} <i class="fa fa-long-arrow-up" style="margin-left:20px"></i><i class="fa fa-long-arrow-down"></i></th>
+              <th class="text-center" style="cursor: pointer;" onclick="sortTable(6)">{{ __('horserace::be_form.new_registered') }} <i class="fa fa-long-arrow-up" style="margin-left:20px"></i><i class="fa fa-long-arrow-down"></i></th>
+              <th class="text-center" style="cursor: pointer;" onclick="sortTable(7)">{{ __('horserace::be_form.number_user_login') }} <i class="fa fa-long-arrow-up" style="margin-left:20px"></i><i class="fa fa-long-arrow-down"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END PAGE CONTENT-->
+@endsection
+@section('javascript')
+  <script>
+    $('#calendarDeposit').fullCalendar({
+      locale: 'ja',
+      height: 350,
+      firstDay: 1,
+      selectable: true,
+      dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+
+      customButtons: {
+        buttonPrev: {
+          icon: 'fc-icon fc-icon-left-single-arrow',
+          click: function () {
+            $('#calendarDeposit').fullCalendar('prev');
+            callReportMonthPayment();
+          }
+        },
+        buttonNext: {
+          icon: 'fc-icon fc-icon-right-single-arrow',
+          click: function () {
+            $('#calendarDeposit').fullCalendar('next');
+            callReportMonthPayment();
+          }
+        },
+        buttonToday: {
+          text: '今日',
+          click: function () {
+            $('#calendarDeposit').fullCalendar('today');
+            callReportMonthPayment();
+          }
+        },
+      },
+
+      header: {
+        left: 'buttonPrev buttonNext buttonToday',
+        center: 'title',
+        right: 'buttonToday buttonPrev buttonNext'
+      },
+
+      eventSources: [
+        {
+          url: '{{ route('admin.holiday') }}', // use the `url` property
+          color: 'yellow',    // an option!
+          textColor: 'black'  // an option!
+        }
+      ],
+
+      select: function (startDate, endDate) {
+        callReportMonthPayment(true, startDate);
+      },
+
+      views: {
+        month: {
+          titleFormat: 'YYYY年MM月'
+        }
+      }
+    });
+  </script>
+
+  <script>
+    // Choose method
+    $(".method").change(function () {
+      callReportMonthPayment();
+    });
+
+    // Ready
+    $(document).ready(function () {
+      callReportMonthPayment();
+    });
+
+    // Call ajax
+    function callReportMonthPayment(selected = false, startDate) {
+      var start_month;
+      if (selected) {
+        start_month = startDate.format();
+      }
+      else {
+        intervalStart = $('#calendarDeposit').fullCalendar('getView').intervalStart;
+        start_month = intervalStart.format();
+      }
+
+      console.log($('.method').val());
+
+      $.ajax({
+        type: 'get',
+        url: '{{ route('admin.summary.deposit.ajax') }}',
+        data: {
+          // '_token': $('input[name=_token]').val(),
+          'start_month': start_month,
+          'method': $('.method').val(),
+        },
+        success: function (data) {
+          result = JSON.parse(data);
+          var point = [];
+          var amount = [];
+          for (index in result.datetime) {
+            // point.push(result.datetime[index]['total_point']);
+            amount.push(result.datetime[index]['total_amount']);
+          }
+          titleTime(result.year, result.month, result.day);
+          // Bar char
+          tableReportWeekPayment(result.weekly);
+          tableReportDayPayment(result.datetime);
+          barChar(result.date, point, amount);
+
+        },
+      });
+    }
+
+    function titleTime(year, month, day) {
+      if (day == '01') {
+        $('.title-time').text(year + '年' + month + '月');
+      }
+      else {
+        $('.title-time').text(year + '年' + month + '月' + day + '日');
+      }
+    }
+
+    // Char
+    function barChar(date_time, point, amount) {
+      var barData = {
+        labels: date_time,
+        datasets: [
+          {
+            label: '{{ __('horserace::be_form.deposit') }}',
+            backgroundColor: '#18C5A9', // '#30C8B3'
+            borderColor: "#fff",
+            data: amount
+          }
+        ]
+      };
+      var barOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scaleShowValues: true,
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              callback: function (value, index, values) {
+                var monney = new Intl.NumberFormat('ja-JP', {
+                  style: 'currency',
+                  currency: 'JPY'
+                }).format(value);
+                return monney;
+              }
+            }
+          }],
+          xAxes: [{
+            ticks: {
+              autoSkip: false
+            }
+          }],
+        },
+        tooltips: {
+          callbacks: {
+            title: function (tooltipItem, data) {
+              return data['labels'][tooltipItem[0]['index']];
+            },
+            label: function (tooltipItem, data) {
+              var value = new Intl.NumberFormat('ja-JP', {
+                style: 'currency',
+                currency: 'JPY'
+              }).format(data['datasets'][0]['data'][tooltipItem['index']]);
+              return value;
+            },
+          },
+        }
+
+      };
+      var ctx = document.getElementById("bar_chart").getContext("2d");
+      new Chart(ctx, {type: 'bar', data: barData, options: barOptions})
+    }
+    
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("table-report-day-payment");
+      switching = true;
+      dir = "asc";
+      while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 2); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+
+          if (dir == "asc") {
+            if (parseInt(x.innerHTML.toLowerCase().replace(/[^0-9\.]/g, '')) > parseInt(y.innerHTML.toLowerCase().replace(/[^0-9\.]/g, ''))) {
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (parseInt(x.innerHTML.toLowerCase().replace(/[^0-9\.]/g, '')) < parseInt(y.innerHTML.toLowerCase().replace(/[^0-9\.]/g, ''))) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          switchcount ++;
+        } else {
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+
+    // Table report day
+    function tableReportDayPayment(report_day_month) {
+      $("#table-report-day-payment tbody").empty();
+      var trHTML = '';
+      let all_total_amount = 0;
+      let all_number_deposit = 0;
+      let all_number_user_deposit = 0;
+      let all_new_depositor = 0;
+      let all_unit_deposit = 0;
+      let all_new_registered = 0;
+      let all_number_user_login = 0;
+
+      for (index in report_day_month) {
+        trHTML += '<tr>' +
+          '<td>' + report_day_month[index]['date'] + '</td>' +
+          '<td> ' + new Intl.NumberFormat('ja-JP', {
+            style: 'currency',
+            currency: 'JPY'
+          }).format(report_day_month[index]['total_amount']) + '</td>' +
+          '<td>' + new Intl.NumberFormat().format(report_day_month[index]['number_deposit']) + '件</td>' +
+          '<td>' + new Intl.NumberFormat().format(report_day_month[index]['number_user_deposit']) + '人</td>' +
+          '<td>' + new Intl.NumberFormat().format(report_day_month[index]['new_depositor']) + '人</td>' +
+          '<td> ' + new Intl.NumberFormat('ja-JP', {
+            style: 'currency',
+            currency: 'JPY'
+          }).format(report_day_month[index]['unit_deposit']) + '</td>' +
+          '<td>' + new Intl.NumberFormat().format(report_day_month[index]['new_registered']) + '人</td>' +
+          '<td>' + new Intl.NumberFormat().format(report_day_month[index]['number_user_login']) + '人</td>' +
+          '</tr>';
+          all_total_amount += parseInt(report_day_month[index]['total_amount']);
+          all_number_deposit += parseInt(report_day_month[index]['number_deposit']);
+          all_number_user_deposit += parseInt(report_day_month[index]['number_user_deposit']);
+          all_new_depositor += parseInt(report_day_month[index]['new_depositor']);
+          all_unit_deposit += parseInt(report_day_month[index]['unit_deposit']);
+          all_new_registered += parseInt(report_day_month[index]['new_registered']);
+          all_number_user_login += parseInt(report_day_month[index]['number_user_login']);
+      }
+      trHTML += '<tr>' +
+          '<td class="bg-yellow">合計</td>' +
+          '<td> ' + new Intl.NumberFormat('ja-JP', {
+            style: 'currency',
+            currency: 'JPY'
+          }).format(all_total_amount) + '</td>' +
+          '<td>' + new Intl.NumberFormat().format(all_number_deposit) + '件</td>' +
+          '<td>' + new Intl.NumberFormat().format(all_number_user_deposit) + '人</td>' +
+          '<td>' + new Intl.NumberFormat().format(all_new_depositor) + '人</td>' +
+          '<td> ' + new Intl.NumberFormat('ja-JP', {
+            style: 'currency',
+            currency: 'JPY'
+          }).format(all_number_user_deposit != 0 ? all_total_amount/all_number_user_deposit : 0) + '</td>' +
+          '<td>' + new Intl.NumberFormat().format(all_new_registered) + '人</td>' +
+          '<td>' + new Intl.NumberFormat().format(all_number_user_login) + '人</td>' +
+          '</tr>';
+      $('#table-report-day-payment tbody').append(trHTML);
+    }
+
+    // Table report week
+    function tableReportWeekPayment(report_week_month) {
+      $("#table-report-week-payment tbody").empty();
+
+      var trHTML = '';
+      var number = 0;
+      $.each(report_week_month, function (number_week, report_week) {
+        number += 1;
+        if (number_week != 'summary') {
+          trHTML += '<tr>' +
+            '<td>' + number + '</td>' +
+            '<td>' + report_week.from + ' ～ ' + report_week.to + '</td>' +
+            '<td style="text-align:right;">' + new Intl.NumberFormat('ja-JP', {
+              style: 'currency',
+              currency: 'JPY'
+            }).format(report_week.total_amount) + '</td>' +
+            '<td style="text-align:right;">' + new Intl.NumberFormat().format(report_week.number_deposit) + ' 件</td>' +
+            '<td style="text-align:right;">' + new Intl.NumberFormat().format(report_week.number_user_deposit) + ' 人</td>' +
+            '<td style="text-align:right;">' + new Intl.NumberFormat('ja-JP', {
+              style: 'currency',
+              currency: 'JPY'
+            }).format(report_week.unit_deposit, 0) + '</td>' +
+            '<td>' + new Intl.NumberFormat().format(report_week.number_user_login) + '人</td>' +
+            '</tr>';
+        }
+        else {
+          trHTML += '<tr>' +
+            '<td class="bg-yellow" colspan="2">合計</td>' +
+            '<td style="text-align:right;">' + new Intl.NumberFormat('ja-JP', {
+              style: 'currency',
+              currency: 'JPY'
+            }).format(report_week.total_amount) + ' </td>' +
+            '<td style="text-align:right;">' + new Intl.NumberFormat().format(report_week.number_deposit) + ' 件</td>' +
+            '<td style="text-align:right;">' + new Intl.NumberFormat().format(report_week.number_user_deposit) + '人</td>' +
+            '<td style="text-align:right;">' + new Intl.NumberFormat('ja-JP', {
+              style: 'currency',
+              currency: 'JPY'
+            }).format(report_week.unit_deposit, 0) + ' </td>' +
+            '<td>' + new Intl.NumberFormat().format(report_week.number_user_login) + '人</td>' +
+            '</tr>';
+        }
+      });
+      $('#table-report-week-payment tbody').append(trHTML);
+    }
+
+  </script>
+
+@endsection

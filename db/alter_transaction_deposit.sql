@@ -1,0 +1,1 @@
+ALTER TABLE `transaction_deposit` ADD `first_trans_id` int(10) NULL after `result`;

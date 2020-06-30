@@ -1,0 +1,1 @@
+ALTER TABLE `mail_contact` ADD `mail_html` LONGTEXT NULL AFTER `mail_body`, ADD `attachments` LONGTEXT NULL AFTER `mail_html`;
